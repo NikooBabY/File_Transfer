@@ -27,7 +27,7 @@ class Main:
             self.send_file()
         elif self.choice == "Upload":
             self.file_recieve()
-        print("good")
+
 
     def send_file(self):
         while True:
