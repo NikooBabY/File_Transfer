@@ -11,4 +11,4 @@ This is the socket file transfer program wchih can be used for uploading and dow
 
 # Note
 
-Change the file paths accordingly.
+Change the file paths accordingly and use the database and the csv file provided. 
