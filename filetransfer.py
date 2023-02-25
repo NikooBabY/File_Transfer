@@ -12,7 +12,7 @@ import mysql.connector as mysql
 from mysql.connector import Error
 import csv
 import hashlib
-import subprocess
+# import subprocess
 
 class Main:
     def __init__(self):
@@ -33,19 +33,19 @@ class Main:
 
         
         self.convert=customtkinter.CTkButton(master=self.root,
-                                 command=self.compl_server,
+                                 command=self.server_connect,
                                  text='Connect to Server',
                                  fg_color=("dodger blue", "dodger blue"))
         self.convert.place(relx='0.3',rely='0.7')
 
         self.root.mainloop()
     
-    def compl_server(self):
-        self.run_server()
-        self.server_connect()
+    # def compl_server(self):
+    #     self.run_server()
+    #     self.server_connect()
 
-    def run_server(self):
-        subprocess.Popen(["python", "E:\Python Semester 2\Assignment\File Transfer\Filesocket.py"])
+    # def run_server(self):
+    #     subprocess.Popen(["python", "E:\Python Semester 2\Assignment\File Transfer\Filesocket.py"])
 
 
     def server_connect(self):
@@ -351,9 +351,10 @@ class Main:
         self.s.sendall(b'Download')
         x = self.lbox.curselection()[0]
         file = self.lbox.get(x)
-        with open(file) as file:
-            filename = file.name
-            self.s.send(filename.encode('UTF-8'))
+        print(file)
+        with open(f"E:\Python Semester 2\Assignment\File Transfer\Server\{file}"):
+            filename = file
+            self.s.sendall(filename.encode('UTF-8'))
             self.entry_pop()
 
 if __name__ == "__main__":
